@@ -1,6 +1,10 @@
-/* config-overrides.js */
+const path = require("path");
+const { override, useBabelRc, addWebpackAlias } = require("customize-cra");
 
-module.exports = function override(config, env) {
-  //do stuff with the webpack config...
-  return config;
-}
+module.exports = override(
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useBabelRc(),
+  addWebpackAlias({
+    "~": path.resolve(__dirname, "src"),
+  })
+);
