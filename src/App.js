@@ -1,12 +1,5 @@
-import './App.css';
-import Button from '~/components/Button';
-
 function App() {
-    return (
-        <div className="App">
-            <Button />
-        </div>
-    );
+    return <div className="cqt-bg">Hello các bạn</div>;
 }
 
 export default App;
