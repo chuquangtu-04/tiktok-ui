@@ -8,11 +8,16 @@ function DefaultLayout({ children }) {
                 <Header />
             </div>
 
-            <div className="main">
-                <div className="slidebar">
-                    <SlideBar />
+            <div className="main flex justify-center items-center">
+                <div className="content w-[950px] bg-pink-400 flex">
+                    <div className="slidebar basis-2/6 bg-red-400">
+                        <SlideBar />
+                    </div>
+
+                    <div className="content basis-4/6 bg-green-300">
+                        {children}
+                    </div>
                 </div>
-                <div className="content">{children}</div>
             </div>
         </div>
     );

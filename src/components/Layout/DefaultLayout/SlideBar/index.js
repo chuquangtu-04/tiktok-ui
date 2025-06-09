@@ -1,5 +1,9 @@
 function SlideBar() {
-    return <h1>SlideBar</h1>;
+    return (
+        <aside>
+            <h1>SlideBar</h1>
+        </aside>
+    );
 }
 
 export default SlideBar;
