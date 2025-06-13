@@ -87,7 +87,7 @@ function Header() {
                     <Button primary medium>
                         Log in
                     </Button>
-                    <Button outline large>
+                    <Button primary large>
                         Log in
                     </Button>
                 </div>

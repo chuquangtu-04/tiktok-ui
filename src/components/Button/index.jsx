@@ -10,7 +10,6 @@ function Button({ to, href, primary, small, large, medium, outline, children, on
         onClick,
         ...passProps,
     };
-    console.log('primary: ', primary);
     if (to) {
         props.to = to;
         Comp = Link;
@@ -20,41 +19,15 @@ function Button({ to, href, primary, small, large, medium, outline, children, on
     }
 
     console.log({ ...props });
-    const classes = classNames(
-    'text-[16px] rounded-[4px] font-bold border-solid border-[1px]',
-    {
+    const classes = classNames('text-[16px] rounded-[4px] font-bold border-solid border-[1px]', {
         'bg-[#fe2c55] text-white border-[#fe2c55] hover:bg-[#f0274d]': primary,
         'border-[#fe2c55] text-[#fe2c55] hover:bg-[#fe2c550f]': outline,
         'min-w-[88px] py-[4px] px-[16px]': small,
         'min-w-[100px] py-[9px] px-[16px]': medium,
         'min-w-[140px] py-[14px] px-[16px]': large,
-    }
-);
-    // console.log(classes)
-    const arr = ['b', { c: true, d: false }];
-    console.log(classNames(arr))
-
+    });
     return (
-        <Comp
-            className={`${
-                primary
-                    ? 'bg-[#fe2c55] text-white border-[#fe2c55] hover:bg-[#f0274d]'
-                    : outline
-                    ? 'border-[#fe2c55] text-[#fe2c55] hover:bg-[#fe2c550f]'
-                    : ''
-            }
-            ${
-                small
-                    ? 'min-w-[88px] py-[4px] px-[16px]'
-                    : medium
-                    ? 'min-w-[100px] py-[9px] px-[16px]'
-                    : large
-                    ? 'min-w-[140px] py-[14px] px-[16px]'
-                    : ''
-            }
-            text-[16px] rounded-[4px] font-bold border-solid border-[1px]`}
-            {...props}
-        >
+        <Comp className={classes} {...props}>
             <span className="">{children}</span>
         </Comp>
     );
