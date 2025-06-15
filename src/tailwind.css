@@ -661,10 +661,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(254 44 85 / var(--tw-bg-opacity, 1));
 }
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
-}
 .bg-transparent {
   background-color: transparent;
 }
@@ -687,10 +683,6 @@ video {
   padding-left: 5px;
   padding-right: 5px;
 }
-.py-\[12px\] {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
 .py-\[14px\] {
   padding-top: 14px;
   padding-bottom: 14px;
@@ -707,6 +699,10 @@ video {
   padding-top: 6px;
   padding-bottom: 6px;
 }
+.py-\[9px\] {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
 .pb-\[8px\] {
   padding-bottom: 8px;
 }
@@ -715,6 +711,12 @@ video {
 }
 .pl-\[18px\] {
   padding-left: 18px;
+}
+.pl-\[20px\] {
+  padding-left: 20px;
+}
+.pr-\[24px\] {
+  padding-right: 24px;
 }
 .pt-2 {
   padding-top: 0.5rem;
