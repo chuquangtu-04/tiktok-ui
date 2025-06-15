@@ -9,7 +9,7 @@ function DefaultLayout({ children }) {
             </div>
 
             <div className="main flex justify-center items-center">
-                <div className="content w-[950px] flex">
+                <div className="content w-[950px] flex pr-[24px] pl-[20px]">
                     <div className="slidebar basis-2/6">
                         <SlideBar />
                     </div>
