@@ -14,6 +14,7 @@ function Button({
     disable = false,
     rounded = false,
     lefticon,
+    righticon = false,
     children,
     onClick,
     ...passProps
@@ -57,9 +58,9 @@ function Button({
     );
     return (
         <Comp className={classes} {...props}>
-            {lefticon && <span className="">{lefticon}</span>}
+            {lefticon && <span className="w-[24px] inline-block text-center">{lefticon}</span>}
             <span className="">{children}</span>
-            {lefticon && <span className="">{lefticon}</span>}
+            {righticon && <span className="">{lefticon}</span>}
         </Comp>
     );
 }

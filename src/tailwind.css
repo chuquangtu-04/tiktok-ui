@@ -507,8 +507,11 @@ video {
 .ml-\[6px\] {
   margin-left: 6px;
 }
-.mr-\[10px\] {
-  margin-right: 10px;
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
 }
 .flex {
   display: flex;
@@ -542,6 +545,12 @@ video {
 }
 .w-\[1px\] {
   width: 1px;
+}
+.w-\[224px\] {
+  width: 224px;
+}
+.w-\[24px\] {
+  width: 24px;
 }
 .w-\[361px\] {
   width: 361px;
@@ -592,20 +601,15 @@ video {
 .justify-between {
   justify-content: space-between;
 }
-.space-x-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .rounded {
   border-radius: 0.25rem;
@@ -657,16 +661,16 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(254 44 85 / var(--tw-bg-opacity, 1));
 }
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+}
 .bg-transparent {
   background-color: transparent;
 }
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
 }
 .object-cover {
   object-fit: cover;
@@ -678,6 +682,14 @@ video {
 .px-\[16px\] {
   padding-left: 16px;
   padding-right: 16px;
+}
+.px-\[5px\] {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.py-\[12px\] {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .py-\[14px\] {
   padding-top: 14px;
@@ -695,17 +707,29 @@ video {
   padding-top: 6px;
   padding-bottom: 6px;
 }
+.pb-\[8px\] {
+  padding-bottom: 8px;
+}
 .pl-\[16px\] {
   padding-left: 16px;
 }
+.pl-\[18px\] {
+  padding-left: 18px;
+}
 .pt-2 {
   padding-top: 0.5rem;
+}
+.text-center {
+  text-align: center;
 }
 .text-\[14px\] {
   font-size: 14px;
 }
 .text-\[16px\] {
   font-size: 16px;
+}
+.text-\[20px\] {
+  font-size: 20px;
 }
 .font-bold {
   font-weight: 700;
