@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Header({ title, onBack }) {
     return (
-        <Header className="">
-            <button className="" onClick={onBack}>
+        <header className="w-full mt-[-8px] flex h-[50px] items-center relative text-[16px] font-bold">
+            <button className="w-[50px]" onClick={onBack}>
                 <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            <h4 className="">{title}</h4>
-        </Header>
+            <h4 className="absolute left-[35%]">{title}</h4>
+        </header>
     );
 }
 

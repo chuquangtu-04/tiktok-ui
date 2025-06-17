@@ -1,9 +1,34 @@
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
-function Menu({ children, items }) {
+import Header from './MenuHeader';
+import { useState } from 'react';
+
+const defaultffc = () => {};
+
+function Menu({ children, items, onchange = defaultffc }) {
+    const [History, setHistory] = useState([{ data: items }]);
+    const current = History[History.length - 1];
+
     const renderItems = () => {
-        return items.map((item, index) => <MenuItem key={index} data={item} />);
+        return current.data.map((item, index) => {
+            const isParent = !!item.children;
+            return (
+                <MenuItem
+                    key={index}
+                    data={item}
+                    onClick={() => {
+                        if (isParent) {
+                            setHistory((prev) => {
+                                return [...prev, item.children];
+                            });
+                        } else {
+                            onchange(item);
+                        }
+                    }}
+                />
+            );
+        });
     };
     return (
         <Tippy
@@ -13,7 +38,15 @@ function Menu({ children, items }) {
             render={(attrs) => (
                 <div tabIndex={-1} {...attrs} className="w-[224px] block">
                     <PopperWrapper>
-                        <div className="pb-[8px]">s {renderItems()}</div>
+                        <div className="pb-[8px]">
+                            {History.length > 1 && (
+                                <Header
+                                    title="Language"
+                                    onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))}
+                                />
+                            )}
+                            {renderItems()}
+                        </div>
                     </PopperWrapper>
                 </div>
             )}

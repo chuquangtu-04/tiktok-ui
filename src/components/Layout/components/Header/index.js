@@ -10,11 +10,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { text } from '@fortawesome/fontawesome-svg-core';
-import { useEffect, useState } from 'react';
+import { Children, useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 
 import images from '~/asset/images';
-import classNames from 'classnames/bind';
 import './header.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItems';
@@ -31,8 +30,38 @@ function Header() {
         }, 0);
     }, []);
 
+    //Handle logic
+    const handleOnchage = (item) => {
+        switch (item) {
+            case 'language':
+                //handle language
+                break;
+
+            default:
+                break;
+        }
+    };
+
     const MENU_ITEMS = [
-        { icon: <FontAwesomeIcon icon={faEarthAsia} />, title: 'English' },
+        {
+            icon: <FontAwesomeIcon icon={faEarthAsia} />,
+            title: 'English',
+            children: {
+                title: 'Language',
+                data: [
+                    {
+                        type: 'language',
+                        code: 'en',
+                        title: 'Engish',
+                    },
+                    {
+                        type: 'language',
+                        code: 'vi',
+                        title: 'Tiếng Việt',
+                    },
+                ],
+            },
+        },
         { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and help', to: '/feedback' },
         { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboard shortcuts' },
     ];
@@ -98,7 +127,7 @@ function Header() {
                     <Button primary medium lefticon={<FontAwesomeIcon icon={faSignIn} />}>
                         Log in
                     </Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onchange={handleOnchage}>
                         <button className="text-[20px] px-[5px]">
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
