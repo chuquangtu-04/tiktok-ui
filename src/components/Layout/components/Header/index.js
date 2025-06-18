@@ -1,17 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
+    faCloudUpload,
+    faCoins,
     faEarthAsia,
     faEllipsisVertical,
+    faGear,
     faKeyboard,
     faMagnifyingGlass,
+    faMessage,
     faSignIn,
+    faSignOut,
     faSpinner,
+    faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { text } from '@fortawesome/fontawesome-svg-core';
 import { Children, useEffect, useState } from 'react';
-import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import headlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css';
 
 import images from '~/asset/images';
 import './header.module.scss';
@@ -23,6 +31,8 @@ import Menu from '~/components/Popper/Menu';
 function Header() {
     const [valueInput, setValueInput] = useState('');
     const [searchResult, setSearchResult] = useState([]);
+
+    let currentUser = false;
 
     useEffect(() => {
         setTimeout(() => {
@@ -69,12 +79,39 @@ function Header() {
     const handleChange = (e) => {
         setValueInput(e.target.value);
     };
+
+    const MENU_USER = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'View profile',
+            to: '/@hoaa',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get coins',
+            to: '/coin',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Settings',
+            to: '/settings',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log out',
+            to: '/logout',
+            separate: true,
+        },
+    ];
     return (
         <header className="wrapper h-[60px] shadow-[0px_1px_1px_rgb(0_0_0_/12%)] flex justify-center items-center">
             <div className="content w-[950px] h-full flex justify-between items-center pr-[24px] pl-[20px]">
                 <div className="logo">
                     <img src={images.logo} alt="tiktok" />
                 </div>
+                {/* Logo */}
+
                 <Tippy
                     visible
                     interactive={true}
@@ -122,17 +159,45 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className="action inline-flex space-x-8">
-                    <Button text>Upload</Button>
-                    <Button primary medium lefticon={<FontAwesomeIcon icon={faSignIn} />}>
-                        Log in
-                    </Button>
-                    <Menu items={MENU_ITEMS} onchange={handleOnchage}>
-                        <button className="text-[20px] px-[5px]">
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                {/* Search */}
+
+                <div className={`action inline-flex items-center ${currentUser ? '' : 'space-x-8'}`}>
+                    {currentUser ? (
+                        <>
+                            <Tippy
+                                delay={[0, 200]}
+                                placement="bottom"
+                                content="Upload Video"
+                                className="text-[16px] font-semibold leading-[22px] bg-[#545454eb] rounded-[8px] py-[3px]"
+                            >
+                                <button className="icon text-[#161823] text-[22px] py-[4px] px-[12px]">
+                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <>
+                            <Button text>Upload</Button>
+                            <Button primary medium leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
+                                Log in
+                            </Button>
+                        </>
+                    )}
+                    <Menu items={currentUser ? MENU_USER : MENU_ITEMS} onchange={handleOnchage}>
+                        {currentUser ? (
+                            <img
+                                className="w-[32px] h-[32px] rounded-full object-cover ml-[12px]"
+                                src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/c14a92a8e2e23babececab98c0f67fac~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=95139afe&x-expires=1750392000&x-signature=NQPoA%2FMsanpECo0OSNA3pssM8Uo%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
+                                alt="Chu Quang Tú"
+                            ></img>
+                        ) : (
+                            <button className="text-[20px] px-[5px]">
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
+                {/* Action */}
             </div>
         </header>
     );

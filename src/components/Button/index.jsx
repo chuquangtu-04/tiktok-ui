@@ -13,9 +13,9 @@ function Button({
     text = false,
     disable = false,
     rounded = false,
-    textmenuItem = false,
-    lefticon,
-    righticon = false,
+    textMenuItem = false,
+    leftIcon,
+    rightIcon = false,
     children,
     onClick,
     ...passProps
@@ -52,13 +52,13 @@ function Button({
         'border-[#fe2c55] hover:border-[#fe2c55] inline-flex items-center justify-center': outline && rounded,
         'rounded-[999px] shadow-[0_2px_8px_rgb(0_0_0_/_6%)] border-[#1618231f] hover:border-[#16182333] hover:bg-[#16182308] border-[1px] inline-flex items-center justify-center':
             rounded,
-        'w-full inline-flex h-full justify-start': textmenuItem,
+        'w-full inline-flex h-full justify-start': textMenuItem,
     });
     return (
         <Comp className={classes} {...props}>
-            {lefticon && <span className="w-[24px] inline-block text-center">{lefticon}</span>}
+            {leftIcon && <span className="w-[24px] inline-block text-center">{leftIcon}</span>}
             <span className="">{children}</span>
-            {righticon && <span className="">{lefticon}</span>}
+            {rightIcon && <span className="">{leftIcon}</span>}
         </Comp>
     );
 }
