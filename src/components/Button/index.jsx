@@ -40,7 +40,7 @@ function Button({
             }
         });
     }
-    const classes = classNames('text-[16px] rounded-[4px] font-bold border-solid select-none space-x-2', {
+    const classes = classNames('text-[16px] rounded-[4px] font-font-semibold border-solid select-none space-x-2', {
         'bg-[#fe2c55] text-white border-[#fe2c55] hover:bg-[#f0274d] inline-flex items-center justify-center': primary,
         'border-[#fe2c55] text-[#fe2c55] hover:bg-[#fe2c550f] border-[1px] inline-flex items-center justify-center':
             outline,
@@ -56,7 +56,7 @@ function Button({
     });
     return (
         <Comp className={classes} {...props}>
-            {leftIcon && <span className="w-[24px] inline-block text-center">{leftIcon}</span>}
+            {leftIcon && <span className="w-[24px] inline-block text-center fon">{leftIcon}</span>}
             <span className="">{children}</span>
             {rightIcon && <span className="">{leftIcon}</span>}
         </Comp>

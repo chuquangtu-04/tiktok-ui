@@ -668,12 +668,6 @@ video {
 .border-\[1px\] {
   border-width: 1px;
 }
-.border-\[2px\] {
-  border-width: 2px;
-}
-.border-t-\[2px\] {
-  border-top-width: 2px;
-}
 .border-t-\[1px\] {
   border-top-width: 1px;
 }
@@ -782,17 +776,14 @@ video {
 .text-\[22px\] {
   font-size: 22px;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-medium {
   font-weight: 500;
 }
+.font-normal {
+  font-weight: 400;
+}
 .font-semibold {
   font-weight: 600;
-}
-.font-light {
-  font-weight: 300;
 }
 .leading-\[22px\] {
   line-height: 22px;
@@ -806,9 +797,6 @@ video {
 .text-\[\#161823\] {
   --tw-text-opacity: 1;
   color: rgb(22 24 35 / var(--tw-text-opacity, 1));
-}
-.text-\[\#161823bf\] {
-  color: #161823bf;
 }
 .text-\[\#20d5ec\] {
   --tw-text-opacity: 1;
@@ -825,13 +813,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.text-\[red-900\] {
-  color: red-900;
-}
-.text-\[red\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 0 0 / var(--tw-text-opacity, 1));
 }
 .caret-\[\#ea284a\] {
   caret-color: #ea284a;

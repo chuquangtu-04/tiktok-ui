@@ -1,6 +1,6 @@
 const images = {
     logo: require('~/asset/images/logo.svg').default,
+    noImage: require('~/asset/images/no-image.png'),
 };
 
-console.log(images.logo);
 export default images;
