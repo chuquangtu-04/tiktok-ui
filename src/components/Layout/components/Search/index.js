@@ -1,4 +1,4 @@
-import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faL, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useRef, useState } from 'react';
@@ -10,14 +10,33 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+    //GET API
+    useEffect(() => {
+        // fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=hoaa&type=less`)
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //         console.log(res.data);
+        //     });
+        if (!searchValue.trim()) {
+            setSearchResult([]);
+            return;
+        }
+        setLoading(true);
+        const fetchAPI = async () => {
+            const res = await fetch(
+                `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`,
+            );
+            const data = await res.json();
+            setLoading(false);
+            setSearchResult(data.data);
+        };
+        fetchAPI();
+    }, [searchValue]);
 
     const inputRef = useRef();
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 3, 4]);
-        }, 0);
-    }, []);
     const handleRemove = () => {
         setSearchValue('');
         setSearchResult([]);
@@ -36,12 +55,13 @@ function Search() {
                         <div className="searchAcount py-[5px] px-[12px] text-[14px] text-[#16182380] font-semibold">
                             Acount
                         </div>
-                        <AccountItem />
+                        {searchResult.map((result) => {
+                            return <AccountItem key={result.id} data={result} />;
+                        })}
                     </PopperWrapper>
                 </div>
             )}
             onClickOutside={handleHideResult}
-            oncli
         >
             <div className="search w-[361px] h-[46px] flex pl-[16px] rounded-[92px] bg-[#1618230f] border-[1px] border-solid border-transparent focus-within:border-[#16182333]">
                 <input
@@ -56,14 +76,16 @@ function Search() {
                     onFocus={() => setShowResult(true)}
                 />
                 <button className="search-icon flex items-center text-[#16182357]">
-                    {!!searchValue && (
+                    {!!searchValue && !loading && (
                         <div onClick={handleRemove}>
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </div>
                     )}
-                    <div className="hidden">
-                        <FontAwesomeIcon icon={faSpinner} />
-                    </div>
+                    {loading && (
+                        <div className="animate-spin">
+                            <FontAwesomeIcon icon={faSpinner} />
+                        </div>
+                    )}
                 </button>
 
                 <div className="flex items-center">
