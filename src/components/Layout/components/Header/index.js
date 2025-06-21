@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCoins,
@@ -8,34 +7,22 @@ import {
     faKeyboard,
     faSignIn,
     faSignOut,
-    faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
 import images from '~/asset/images';
-import './header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItems';
 import Button from '~/components/Button';
-import Menu from '~/components/Popper/Menu';
-import { MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import { MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Menu from '~/components/Popper/Menu';
+import Search from '../Search';
+import './header.module.scss';
 
 function Header() {
-    const [valueInput, setValueInput] = useState('');
     let currentUser = true;
-
-    const [searchResult, setSearchResult] = useState([]);
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 4]);
-        }, 0);
-    }, []);
 
     //Handle logic
     const handleOnchage = (item) => {
@@ -73,10 +60,6 @@ function Header() {
         { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboard shortcuts' },
     ];
 
-    const handleChange = (e) => {
-        setValueInput(e.target.value);
-    };
-
     const MENU_USER = [
         {
             icon: <FontAwesomeIcon icon={faUser} />,
@@ -109,53 +92,8 @@ function Header() {
                 </div>
                 {/* Logo */}
 
-                <HeadlessTippy
-                    visible={searchResult.length > 0}
-                    interactive={true}
-                    render={(attrs) => (
-                        <div tabIndex={-1} {...attrs} className="w-[361px]">
-                            <PopperWrapper>
-                                <div className="searchAcount py-[5px] px-[12px] text-[14px] text-[#16182380] font-semibold">
-                                    Acount
-                                </div>
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className="search w-[361px] h-[46px] flex pl-[16px] rounded-[92px] bg-[#1618230f] border-[1px] border-solid border-transparent focus-within:border-[#16182333]">
-                        <input
-                            value={valueInput}
-                            className="peer text-black h-full text-[16px] bg-transparent outline-none flex-1 caret-[#ea284a]"
-                            spellCheck={false}
-                            placeholder="Search acounts and videos"
-                            onChange={handleChange}
-                        />
-                        <button className="search-icon flex items-center text-[#16182357]">
-                            <div className="">
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </div>
-                            <div className="hidden">
-                                <FontAwesomeIcon icon={faSpinner} />
-                            </div>
-                        </button>
+                <Search />
 
-                        <div className="flex items-center">
-                            <div className="line h-[28px] w-[1px] bg-[#1618231f] ml-[14px]"></div>
-                        </div>
-
-                        <button
-                            className={`search-icon inline-flex justify-center items-center w-[56px] h-full rounded-tr-[92px] rounded-br-[92px] hover:bg-[#16182308] text-[#16182357] active:bg-[#1618230f] `}
-                        >
-                            <div className="">
-                                <SearchIcon
-                                    className={`${valueInput !== '' ? 'rgba(22,24,35,0.75)' : 'rgba(22,24,35,0.34)'}`}
-                                />
-                            </div>
-                        </button>
-                    </div>
-                </HeadlessTippy>
                 {/* Search */}
 
                 <div className={`action inline-flex items-center ${currentUser ? '' : 'space-x-8'}`}>

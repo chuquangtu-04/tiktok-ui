@@ -1,0 +1,87 @@
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import HeadlessTippy from '@tippyjs/react/headless';
+import { useEffect, useRef, useState } from 'react';
+import AccountItem from '~/components/AccountItems';
+import { SearchIcon } from '~/components/Icons';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+
+function Search() {
+    const [searchValue, setSearchValue] = useState('');
+    const [searchResult, setSearchResult] = useState([]);
+    const [showResult, setShowResult] = useState(true);
+
+    const inputRef = useRef();
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSearchResult([1, 3, 4]);
+        }, 0);
+    }, []);
+    const handleRemove = () => {
+        setSearchValue('');
+        setSearchResult([]);
+        inputRef.current.focus();
+    };
+    const handleHideResult = () => {
+        setShowResult(false);
+    };
+    return (
+        <HeadlessTippy
+            visible={showResult && searchResult.length > 0}
+            interactive={true}
+            render={(attrs) => (
+                <div tabIndex={-1} {...attrs} className="w-[361px]">
+                    <PopperWrapper>
+                        <div className="searchAcount py-[5px] px-[12px] text-[14px] text-[#16182380] font-semibold">
+                            Acount
+                        </div>
+                        <AccountItem />
+                    </PopperWrapper>
+                </div>
+            )}
+            onClickOutside={handleHideResult}
+            oncli
+        >
+            <div className="search w-[361px] h-[46px] flex pl-[16px] rounded-[92px] bg-[#1618230f] border-[1px] border-solid border-transparent focus-within:border-[#16182333]">
+                <input
+                    ref={inputRef}
+                    value={searchValue}
+                    className="peer text-black h-full text-[16px] bg-transparent outline-none flex-1 caret-[#ea284a]"
+                    spellCheck={false}
+                    placeholder="Search acounts and videos"
+                    onChange={(e) => {
+                        setSearchValue(e.target.value);
+                    }}
+                    onFocus={() => setShowResult(true)}
+                />
+                <button className="search-icon flex items-center text-[#16182357]">
+                    {!!searchValue && (
+                        <div onClick={handleRemove}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </div>
+                    )}
+                    <div className="hidden">
+                        <FontAwesomeIcon icon={faSpinner} />
+                    </div>
+                </button>
+
+                <div className="flex items-center">
+                    <div className="line h-[28px] w-[1px] bg-[#1618231f] ml-[14px]"></div>
+                </div>
+
+                <button
+                    className={`search-icon inline-flex justify-center items-center w-[56px] h-full rounded-tr-[92px] rounded-br-[92px] hover:bg-[#16182308] text-[#16182357] active:bg-[#1618230f] `}
+                >
+                    <div className="">
+                        <SearchIcon
+                            className={`${searchValue !== '' ? 'rgba(22,24,35,0.75)' : 'rgba(22,24,35,0.34)'}`}
+                        />
+                    </div>
+                </button>
+            </div>
+        </HeadlessTippy>
+    );
+}
+
+export default Search;
