@@ -12,14 +12,16 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 
 import images from '~/asset/images';
 import Button from '~/components/Button';
-import { MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import Search from '../Search';
 import './header.module.scss';
+import routesConfig from '~/config/routes';
 
 function Header() {
     let currentUser = true;
@@ -85,11 +87,11 @@ function Header() {
         },
     ];
     return (
-        <header className="wrapper h-[60px] shadow-[0px_1px_1px_rgb(0_0_0_/12%)] flex justify-center items-center">
+        <header className="wrapper h-[60px] shadow-[0px_1px_1px_rgb(0_0_0_/12%)] flex justify-center items-center fixed top-0 left-0 right-0 bg-white z-10">
             <div className="content w-[950px] h-full flex justify-between items-center pr-[24px] pl-[20px]">
-                <div className="logo">
+                <Link to={routesConfig.home} className="logo block">
                     <img src={images.logo} alt="tiktok" />
-                </div>
+                </Link>
                 {/* Logo */}
 
                 <Search />
@@ -105,7 +107,7 @@ function Header() {
                                 content="Upload Video"
                                 className="text-[16px] font-semibold leading-[22px] bg-[#545454eb] rounded-[8px] py-[3px]"
                             >
-                                <button className="icon text-[#161823] text-[22px] py-[4px] px-[12px]">
+                                <button className="icon text-[#161823] text-[22px] py-[4px] px-[10px]">
                                     <UploadIcon className="" />
                                 </button>
                             </Tippy>
@@ -117,6 +119,19 @@ function Header() {
                             >
                                 <button className="icon text-[#161823] text-[22px] py-[4px] px-[12px]">
                                     <MessageIcon className="" />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                delay={[0, 200]}
+                                placement="bottom"
+                                content="Inbox"
+                                className="text-[16px] font-semibold leading-[22px] bg-[#545454eb] rounded-[8px] py-[3px]"
+                            >
+                                <button className="icon flex text-[#161823] text-[22px] py-[4px] px-[10px] relative">
+                                    <InboxIcon className="" />
+                                    <span className="inbox bg-[#e10543] leading-[18px] text-center text-[12px] text-white w-[20px] h-[18px] rounded-full absolute top-0 right-[5px]">
+                                        12
+                                    </span>
                                 </button>
                             </Tippy>
                         </>

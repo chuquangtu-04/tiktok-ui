@@ -498,6 +498,9 @@ video {
 .visible {
   visibility: visible;
 }
+.fixed {
+  position: fixed;
+}
 .absolute {
   position: absolute;
 }
@@ -506,6 +509,21 @@ video {
 }
 .left-\[35\%\] {
   left: 35%;
+}
+.right-\[5px\] {
+  right: 5px;
+}
+.top-0 {
+  top: 0px;
+}
+.left-0 {
+  left: 0px;
+}
+.right-0 {
+  right: 0px;
+}
+.z-10 {
+  z-index: 10;
 }
 .ml-\[12px\] {
   margin-left: 12px;
@@ -519,6 +537,9 @@ video {
 .mt-\[-8px\] {
   margin-top: -8px;
 }
+.mt-\[60px\] {
+  margin-top: 60px;
+}
 .block {
   display: block;
 }
@@ -530,6 +551,9 @@ video {
 }
 .inline-flex {
   display: inline-flex;
+}
+.h-\[18px\] {
+  height: 18px;
 }
 .h-\[28px\] {
   height: 28px;
@@ -552,14 +576,35 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[2000px\] {
+  height: 2000px;
+}
 .max-h-\[min_\(_\(_100vh_-_96px_\)_-_60px_\2c _734px\)\] {
   max-height: min ( ( 100vh - 96px ) - 60px , 734px);
+}
+.max-h-\[100px\] {
+  max-height: 100px;
+}
+.max-h-\[734px\] {
+  max-height: 734px;
+}
+.max-h-\[400px\] {
+  max-height: 400px;
 }
 .min-h-24 {
   min-height: 6rem;
 }
+.min-h-\[100px\] {
+  min-height: 100px;
+}
+.min-h-\[10px\] {
+  min-height: 10px;
+}
 .w-\[1px\] {
   width: 1px;
+}
+.w-\[20px\] {
+  width: 20px;
 }
 .w-\[224px\] {
   width: 224px;
@@ -644,6 +689,9 @@ video {
   margin-right: calc(2rem * var(--tw-space-x-reverse));
   margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.overflow-y-auto {
+  overflow-y: auto;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -699,6 +747,10 @@ video {
 .bg-\[\#545454eb\] {
   background-color: #545454eb;
 }
+.bg-\[\#e10543\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(225 5 67 / var(--tw-bg-opacity, 1));
+}
 .bg-\[\#fe2c55\] {
   --tw-bg-opacity: 1;
   background-color: rgb(254 44 85 / var(--tw-bg-opacity, 1));
@@ -712,6 +764,10 @@ video {
 }
 .object-cover {
   object-fit: cover;
+}
+.px-\[10px\] {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .px-\[12px\] {
   padding-left: 12px;
@@ -770,6 +826,9 @@ video {
 .text-center {
   text-align: center;
 }
+.text-\[12px\] {
+  font-size: 12px;
+}
 .text-\[14px\] {
   font-size: 14px;
 }
@@ -790,6 +849,9 @@ video {
 }
 .font-semibold {
   font-weight: 600;
+}
+.leading-\[18px\] {
+  line-height: 18px;
 }
 .leading-\[22px\] {
   line-height: 22px;

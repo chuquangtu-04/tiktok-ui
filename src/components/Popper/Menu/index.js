@@ -46,12 +46,13 @@ function Menu({ children, items, onchange = defaultffc }) {
                                     onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))}
                                 />
                             )}
-                            {renderItems()}
+                            <div className="body overflow-y-auto min-h-[100px] max-h-[400px]">{renderItems()}</div>
                         </div>
                     </PopperWrapper>
                 </div>
             )}
             onHidden={() => setHistory((prev) => prev.slice(0, 1))}
+            hideOnClick={false}
         >
             {children}
         </Tippy>
