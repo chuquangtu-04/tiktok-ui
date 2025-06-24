@@ -11,17 +11,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
+import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 
 import images from '~/asset/images';
 import Button from '~/components/Button';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
+import config from '~/config';
 import Search from '../Search';
 import './header.module.scss';
-import routesConfig from '~/config/routes';
 
 function Header() {
     let currentUser = true;
@@ -89,7 +89,7 @@ function Header() {
     return (
         <header className="wrapper h-[60px] shadow-[0px_1px_1px_rgb(0_0_0_/12%)] flex justify-center items-center fixed top-0 left-0 right-0 bg-white z-10">
             <div className="content w-[950px] h-full flex justify-between items-center pr-[24px] pl-[20px]">
-                <Link to={routesConfig.home} className="logo block">
+                <Link to={config.routes.home} className="logo block">
                     <img src={images.logo} alt="tiktok" />
                 </Link>
                 {/* Logo */}
