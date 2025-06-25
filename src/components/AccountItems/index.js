@@ -2,7 +2,6 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import Image from '../Image';
-
 function AccountItem({ data }) {
     return (
         <Link
