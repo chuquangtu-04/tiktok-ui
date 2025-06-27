@@ -14,23 +14,23 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
-    const debounce = useDebounce(searchValue, 500);
+    const debounceValue = useDebounce(searchValue, 500);
 
     //GET API
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
         //Call API
         const fetchAPI = async () => {
             setLoading(true);
-            const result = await searchServices.Search(debounce);
+            const result = await searchServices.Search(debounceValue);
             setSearchResult(result);
             setLoading(false);
         };
         fetchAPI();
-    }, [debounce]);
+    }, [debounceValue]);
 
     const inputRef = useRef();
 
@@ -73,7 +73,7 @@ function Search() {
                     <input
                         ref={inputRef}
                         value={searchValue}
-                        className="peer text-black h-full text-[16px] bg-transparent outline-none flex-1 caret-[#ea284a]"
+                        className="peer text-black h-full text-[16px] bg-transparent outline-none flex-1 caret-[#ea284a] pr-[14px]"
                         spellCheck={false}
                         placeholder="Search acounts and videos"
                         onChange={handleOnchageValue}
