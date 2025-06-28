@@ -8,6 +8,7 @@ import {
     UserGroupActiveIcon,
     LiveActiveIcon,
 } from '~/components/Icons/index';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 function SlideBar() {
     return (
@@ -28,6 +29,8 @@ function SlideBar() {
                 />
                 <MenuItem title="Live" to={config.routes.live} icon={<Live />} iconActive={<LiveActiveIcon />} />
             </Menu>
+            <SuggestedAccounts label={'Suggested Accounts'} />
+            <SuggestedAccounts label={'Following Accounts'} />
         </aside>
     );
 }
