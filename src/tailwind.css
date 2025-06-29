@@ -546,6 +546,18 @@ video {
 .mt-\[60px\] {
   margin-top: 60px;
 }
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.ml-3 {
+  margin-left: 0.75rem;
+}
+.ml-5 {
+  margin-left: 1.25rem;
+}
+.mt-\[10px\] {
+  margin-top: 10px;
+}
 .block {
   display: block;
 }
@@ -563,6 +575,9 @@ video {
 }
 .h-\[28px\] {
   height: 28px;
+}
+.h-\[30px\] {
+  height: 30px;
 }
 .h-\[32px\] {
   height: 32px;
@@ -582,6 +597,9 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[44px\] {
+  height: 44px;
+}
 .max-h-\[400px\] {
   max-height: 400px;
 }
@@ -599,6 +617,9 @@ video {
 }
 .w-\[1px\] {
   width: 1px;
+}
+.w-\[200px\] {
+  width: 200px;
 }
 .w-\[20px\] {
   width: 20px;
@@ -626,6 +647,21 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[250px\] {
+  width: 250px;
+}
+.w-\[300px\] {
+  width: 300px;
+}
+.w-\[350px\] {
+  width: 350px;
+}
+.w-\[320px\] {
+  width: 320px;
+}
+.w-\[44px\] {
+  width: 44px;
 }
 .min-w-\[100px\] {
   min-width: 100px;
@@ -719,14 +755,15 @@ video {
 .border-t-\[1px\] {
   border-top-width: 1px;
 }
-.border-t-\[2px\] {
-  border-top-width: 2px;
-}
 .border-solid {
   border-style: solid;
 }
 .border-\[\#1618231f\] {
   border-color: #1618231f;
+}
+.border-\[\#e3e3e4\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(227 227 228 / var(--tw-border-opacity, 1));
 }
 .border-\[\#fe2c55\] {
   --tw-border-opacity: 1;
@@ -734,14 +771,6 @@ video {
 }
 .border-transparent {
   border-color: transparent;
-}
-.border-red-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(153 27 27 / var(--tw-border-opacity, 1));
-}
-.border-\[\#e3e3e4\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(227 227 228 / var(--tw-border-opacity, 1));
 }
 .bg-\[\#1618230f\] {
   background-color: #1618230f;
@@ -770,14 +799,14 @@ video {
 .object-cover {
   object-fit: cover;
 }
-.p-\[8px\] {
-  padding: 8px;
-}
-.p-8 {
-  padding: 2rem;
-}
 .p-2 {
   padding: 0.5rem;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.p-\[8px\] {
+  padding: 8px;
 }
 .px-\[10px\] {
   padding-left: 10px;
@@ -924,9 +953,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.text-\[\#\] {
-  color: #;
 }
 .caret-\[\#ea284a\] {
   caret-color: #ea284a;

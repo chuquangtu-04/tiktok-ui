@@ -1,12 +1,13 @@
 import config from '~/config';
 import Menu, { MenuItem } from './Menu';
+
 import {
-    HomeIcon,
-    UserGroupIcon,
-    Live,
     HomeActiveIcon,
-    UserGroupActiveIcon,
+    HomeIcon,
+    Live,
     LiveActiveIcon,
+    UserGroupActiveIcon,
+    UserGroupIcon,
 } from '~/components/Icons/index';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 
@@ -29,6 +30,7 @@ function SlideBar() {
                 />
                 <MenuItem title="Live" to={config.routes.live} icon={<Live />} iconActive={<LiveActiveIcon />} />
             </Menu>
+
             <SuggestedAccounts label={'Suggested Accounts'} />
             <SuggestedAccounts label={'Following Accounts'} />
         </aside>
