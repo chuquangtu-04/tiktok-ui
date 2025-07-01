@@ -8,7 +8,7 @@ function AccountItem({ data }) {
     const renderPreview = (attrs) => (
         <div className="box w-[320px] h-[30px]" tabIndex="-1" {...attrs}>
             <Wrapper>
-                <AccountPreview />
+                <AccountPreview data={data} />
             </Wrapper>
         </div>
     );
@@ -19,15 +19,15 @@ function AccountItem({ data }) {
                 <div className="Content flex items-center p-2 cursor-pointer">
                     <img
                         className="Avatar w-[32px] h-[32px] rounded-full object-cover"
-                        src="https://cdn-media.sforum.vn/storage/app/media/thanhhuyen/%E1%BA%A3nh%20s%C6%A1n%20t%C3%B9ng%20mtp/3/anh-son-tung-mtp-41.jpg"
-                        alt="nguyễn thanh tùng"
+                        src={data.avatar}
+                        alt={data.full_name}
                     />
                     <div className="Info ml-[12px]">
                         <p className="Nick-Name text-[16px]">
-                            <strong className="text-[#161223]">Nguyễn Thanh Tùng</strong>
-                            {true && <FontAwesomeIcon icon={faCheckCircle} className="ml-[6px] text-[#20d5ec]" />}
+                            <strong className="text-[#161223]">{data.nickname}</strong>
+                            {data.tick && <FontAwesomeIcon icon={faCheckCircle} className="ml-[6px] text-[#20d5ec]" />}
                         </p>
-                        <p className="Name text-[12px] text-[#161823bf]">Nguyễn Thanh Tùng</p>
+                        <p className="Name text-[12px] text-[#161823bf]">{data.full_name}</p>
                     </div>
                 </div>
             </Tippy>

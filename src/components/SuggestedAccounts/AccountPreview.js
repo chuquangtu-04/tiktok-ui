@@ -2,14 +2,14 @@ import Button from '../Button';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function AccountPreview() {
+function AccountPreview({ data }) {
     return (
         <div className="Wrapper p-5">
             <div className="flex justify-between items-center">
                 <img
                     className="Avatar w-[44px] h-[44px] rounded-full object-cover"
-                    src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/85e51b9b937495fd5d8bc24a655e01a2~tplv-tiktokx-cropcenter:100:100.jpeg?dr=14579&refresh_token=e4c66750&x-expires=1751209200&x-signature=Vt7htQ%2FptWyGcQysJvtrsBpNSfY%3D&t=4d5b0474&ps=13740610&shp=30310797&shcp=c1333099&idc=my"
-                    alt="Mono"
+                    src={data.avatar}
+                    alt={data.full_name}
                 />
                 <Button primary medium>
                     Follow
@@ -17,14 +17,14 @@ function AccountPreview() {
             </div>
             <div className="body mt-3">
                 <p className="Nick-Name text-[18px]">
-                    <strong className="text-[#161223]">Nguyễn Thanh Tùng</strong>
-                    {true && <FontAwesomeIcon icon={faCheckCircle} className="ml-[6px] text-[#20d5ec]" />}
+                    <strong className="text-[#161223]">{data.nickname}</strong>
+                    {data.tick && <FontAwesomeIcon icon={faCheckCircle} className="ml-[6px] text-[#20d5ec]" />}
                 </p>
-                <p className="Name text-[14px] text-[#161823bf]">Nguyễn Thanh Tùng</p>
+                <p className="Name text-[14px] text-[#161823bf]">{data.full_name}</p>
                 <p className="Analytics text-[16px] mt-[10px]">
-                    <strong className="value">8.3M </strong>
+                    <strong className="value">{data.followers_count} </strong>
                     <span className="label">Follows</span>
-                    <strong className="value ml-5">8.3M </strong>
+                    <strong className="value ml-5">{data.followings_count} </strong>
                     <span className="label">Likes</span>
                 </p>
             </div>

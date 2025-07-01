@@ -13,7 +13,7 @@ import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 function SlideBar() {
     return (
-        <aside className="Wrapper">
+        <aside className="Wrapper h-[500px] hover:overflow-y-auto">
             <Menu>
                 <MenuItem
                     title="For You"
